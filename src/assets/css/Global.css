@@ -126,7 +126,7 @@ hr {
  */
 
  .image-cropper {
-    width: 56px;
+    min-width: 56px;
     height: 56px;
     position: relative;
     overflow: hidden;
@@ -134,10 +134,26 @@ hr {
 }
 
 .profile-pic {
-  display: inline;
-  margin: 0 auto;
-  height: 100%;
-  width: auto;
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+}
+
+.no-profile-pic {
+    background: #48D1E0;
+    color: #FFFFFF;
+    min-width: 56px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 32px;
+}
+
+.overlap-pic {
+    margin-left: -18px;
 }
 
 /* ==================================================================

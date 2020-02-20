@@ -17,7 +17,9 @@ Then the Form is replaced with the Thank you page.
 
 class FormPage extends React.Component {
   render() {
-    const expert1 = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1949180/uxe-exercise-portrait1.png";
+    const expert1 = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1949180/uxe-exercise-portrait2.png';
+    const expert2 = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1949180/uxe-exercise-portrait1.png';
+
     return (
       <div>
         <Row className='block-1p5'>
@@ -27,8 +29,12 @@ class FormPage extends React.Component {
         </Row>
         <Row className='block-1'>
           <Col xsOffset={1} xs={10} sm={10} md={10} lg={10} className='flex-container flex-center'>
-            <div class="image-cropper">
-              <img src={expert1} alt="avatar" class="profile-pic" />
+            <div class='image-cropper'>
+              <img src={expert1} alt='avatar' class='profile-pic' />
+            </div>
+            <div className='no-profile-pic overlap-pic' style={{ zIndex: '2' }}>R</div>
+            <div class='image-cropper overlap-pic' style={{ zIndex: '2' }}>
+              <img src={expert2} alt='avatar' class='profile-pic' />
             </div>
             <div className='flex-item'>
               Lena Smith, Roy Johnson or Elijah Taylor will get right back to you.
