@@ -1,5 +1,6 @@
 import React from 'react';
-import { Row, Col } from 'react-flexbox-grid';
+import { Col } from 'react-flexbox-grid';
+import '../assets/css/Global.css';
 
 class ThankYouPage extends React.Component {
   render() {
