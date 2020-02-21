@@ -16,12 +16,34 @@ Then the Form is replaced with the Thank you page.
 */
 
 class FormPage extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      msg: ''
+    }
+
+    this.handleSendButton = this.handleSendButton.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+  }
+
+  handleSendButton = (e) => {
+    e.preventDefault();
+    alert(this.state.msg);
+    this.props.history.push('/thank-you');
+  }
+
+  handleFormSubmit = (e) => {
+    this.setState({ msg: e.target.value });
+  }
+
+
   render() {
     const expert1 = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1949180/uxe-exercise-portrait2.png';
     const expert2 = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1949180/uxe-exercise-portrait1.png';
 
     return (
-      <div>
+      <form onSubmit={this.handleFormSubmit}>
         <Row className='block-1p5'>
           <Col xsOffset={1} xs={10} sm={10} md={10} lg={10}>
             <h3>Ask an expert</h3>
@@ -54,20 +76,27 @@ class FormPage extends React.Component {
         <Row>
           <Col xsOffset={1} xs={10} sm={10} md={10} lg={10} className='block-1'>
             <div>Can you explain in a little more detail?</div>
-            <textarea></textarea>
+            {/* TODO: in future, put this in separate component */}
+            <textarea
+              className='form flex-container'
+              placeholder='Message for expert'
+              value={this.state.msg}
+              rows={3}
+              onChange={this.handleFormSubmit}
+            />
           </Col>
 
         </Row>
         <Row>
-          <Col xsOffset={1} xs={10} sm={10} md={10} lg={10} className='flex-container'>
+          <Col xsOffset={1} xs={10} sm={10} md={10} lg={10} className='block-1 flex-container'>
             <a href='/'><div className='button gray-button'>Cancel</div></a>
-            <a href='/thank-you'><div className='button blue-button flex-item'>Send</div></a>
+            <a href='/thank-you'><div className='button blue-button flex-item' onClick={this.handleSendButton}>Send</div></a>
           </Col>
 
         </Row>
 
 
-      </div>
+      </form>
     )
   }
 
